@@ -6,10 +6,12 @@ jobs:
     container: devkitpro/devkita64:latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build
-        run: make
+      - name: Build sysmodule
+        run: |
+          cd sysmodule
+          make
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: sys-clk-build
-          path: out/ # Nếu build xong mà file rỗng thì nhớ báo tao để mò lại đường dẫn output chuẩn của cái repo này nhé
+          path: sysmodule/out/
