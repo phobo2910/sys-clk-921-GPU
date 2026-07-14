@@ -1,0 +1,15 @@
+name: Build sys-clk
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkita64:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: make
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: sys-clk-build
+          path: out/ # Chỉnh lại path này theo thư mục output thực tế của sys-clk (có thể là root thư mục)
