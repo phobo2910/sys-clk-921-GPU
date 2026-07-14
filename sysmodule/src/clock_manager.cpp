@@ -86,18 +86,8 @@ bool ClockManager::IsAssignableHz(SysClkModule module, std::uint32_t hz)
 
 std::uint32_t ClockManager::GetMaxAllowedHz(SysClkModule module, SysClkProfile profile)
 {
-    if(module == SysClkModule_GPU)
-    {
-        if(profile < SysClkProfile_HandheldCharging)
-        {
-            return Board::GetSocType() == SysClkSocType_Mariko ? 614400000 : 460800000;
-        }
-        else if(profile <= SysClkProfile_HandheldChargingUSB)
-        {
-            return 768000000;
-        }
-    }
-
+    // Trả về 0 đồng nghĩa với việc báo cho hệ thống biết không có giới hạn max (unlimited).
+    // Bất kể đang Handheld, cắm sạc PD hay Docked, cấu hình config bao nhiêu nó ăn bấy nhiêu.
     return 0;
 }
 
