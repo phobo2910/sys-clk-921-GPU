@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     container: devkitpro/devkita64:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         run: make
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sys-clk-build
-          path: out/ # Chỉnh lại path này theo thư mục output thực tế của sys-clk (có thể là root thư mục)
+          path: out/ # Nếu build xong mà file rỗng thì nhớ báo tao để mò lại đường dẫn output chuẩn của cái repo này nhé
