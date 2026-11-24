@@ -1,4 +1,4 @@
-# sys-clk-OC
+# sys-clk-OCc
 
 Switch sysmodule allowing you to set cpu/gpu clocks according to the running application and docked state.
 
